@@ -1,0 +1,92 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>jQuery Mobile: Theme Download</title>
+	
+	<!-- Theme fra theme rolleren -->
+	<link rel="stylesheet" href="themes/petjMob.min.css" />
+	
+	<!-- styles fra jQuery -->
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet"       href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+	
+	<style>
+        #robot {
+            /* tip: animationen kræver en defineret position */
+            postion: relative;
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+	
+</head>
+<body>
+   
+    <!-- page 1 -->
+	<section data-role="page" data-theme="a" id="side1">
+		<header data-role="header" data-position="inline">
+			<h1>jQ Mobile UI</h1>
+		</header>
+		<article data-role="content" data-theme="a">
+			<p>jQuery mobile henter indhold fra fx links via AJAX. Derfor skal du teste din web app i en lokal server. Brug fx MAMP.</p>
+       
+           <a href="#side2" data-role="button">Side 2</a>
+        </article>
+        <footer data-role="footer" data-position="inline">
+            
+        </footer>
+	</section>
+	
+   <!-- page 2 -->
+    <section data-role="page" data-theme="b" id="side2">
+		<header data-role="header" data-position="inline">
+			<h1>jQuery Mobile</h1>
+		</header>
+		<article data-role="content" data-theme="a">
+			<p>UI theme er nu a.</p>
+      
+              <figure>
+                  <img src="billeder/myRobot.png" alt="robot" id="robot">    
+              </figure>
+       
+           <a href="#side1" data-role="button">Forsiden</a>
+        </article>
+        <footer data-role="footer" data-position="inline">
+            
+        </footer>
+	</section>
+
+	<!-- jQuery -->
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- mit script (burde være <eksternt></eksternt>) -->
+    <script>
+        // document ready kort form
+        $(function() {
+    
+            // skriv noget html til alle footer tags
+            $('footer')
+                .html("<p>&copy; petj 2018</p>")
+                .css({
+                    'text-align' : 'center'
+                });
+            
+            // animer robotten
+            $('#robot').click( function(){  
+                console.log('animate: robot');
+                
+                // tip: use margin-left in stead of left:
+                $(this).animate({
+                        'duration': '1000ms',
+                        'margin-left': '+=35'
+                } );
+                
+            });
+            
+        }); // document ready slut
+    </script>
+
+</body>
+</html>
